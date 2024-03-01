@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2><a href = "/new">Enter new book</a></h2>
+    <h1>{% block title %} view all books {% endblock %}</h1>
+    {% for post in posts %}
+        <div class='post'>
+            <p>{{ post['created'] }}</p>
+            <h2>{{ post['title'] }}</h2>
+            <p>{{ post['author'] }}</p>
+            <p>{{ post['quantity'] }}</p>
+           
+        </div>
+    {% endfor %}
+{% endblock %}

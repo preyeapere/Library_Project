@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2><a href = "/">view books</a></h2>
+    <h1>{% block title %} Add a new book {% endblock %}</h1>
+    
+        <form action = "{{ url_for('create') }}" method = "POST">
+   
+        <label for="title">Title</label>
+        <br>
+        <input type="text" name="title"
+               placeholder="Post title"
+               value="{{ request.form['title'] }}"></input>
+        <br>
+
+        <label for="content">Author</label>
+        <br>
+        <textarea name="content"
+                  placeholder="author"
+                  rows="15"
+                  cols="60"
+                  >{{ request.form['author'] }}</textarea>
+        <br>
+        <label for="content">Quantity</label>
+        <br>
+        <textarea name="content"
+                  placeholder="Post quantity"
+                  rows="15"
+                  cols="60"
+                  >{{ request.form[quantity] }}</textarea>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
