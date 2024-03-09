@@ -20,9 +20,9 @@ def new():
 @app.route('/')
 def index():
     conn = get_db_connect()
-    posts = conn.execute('SELECT * FROM book').fetchall()
+    collects = conn.execute('SELECT * FROM book').fetchall()
     conn.close()
-    return render_template('index.html', posts=posts)
+    return render_template('index.html', collects=collects)
 
 # ...
 
@@ -43,8 +43,8 @@ def edit(id):
 
     if request.method == 'POST':
         title = request.form['title']
-        author = request.form[' uthor']
-        quantity = request.form['quantity ']
+        author = request.form['author']
+        quantity = request.form['quantity']
 
         if not title:
             flash('Title is required!')
@@ -56,9 +56,9 @@ def edit(id):
 
         else:
             conn = get_db_connect()
-            conn.execute('UPDATE book SET title = ?, content = ?'
+            conn.execute('UPDATE book SET title = ?, author = ?, quantity = ?'
                          ' WHERE id = ?',
-                         (title, author, id))
+                         (title, author,quantity, id))
             conn.commit()
             conn.close()
             return redirect(url_for('index'))
@@ -71,7 +71,7 @@ def create():
     if request.method == 'POST':
         title = request.form['title']
         author = request.form['author']
-        quantity= request.form[quantity]
+        quantity = request.form['quantity']
 
         if not title:
             flash('Title is required!')
@@ -79,7 +79,7 @@ def create():
             flash('Content is required!')
         else:
             conn = get_db_connect()
-            conn.execute('INSERT INTO book (title, author,quantity) VALUES (?, ?)',
+            conn.execute('INSERT INTO book (title, author,quantity) VALUES (?, ?, ?)',
                          (title,author,quantity))
             conn.commit()
             conn.close()
@@ -103,4 +103,4 @@ def delete(id):
 
 if __name__ == '__main__':
       
-       app.run(debug = True)
+       app.run(debug = True,port=5002)

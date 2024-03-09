@@ -9,26 +9,27 @@
         <label for="title">Title</label>
         <br>
         <input type="text" name="title"
-               placeholder="Post title"
+               placeholder="enter book title"
                value="{{ request.form['title'] }}"></input>
         <br>
 
         <label for="content">Author</label>
         <br>
-        <textarea name="content"
-                  placeholder="author"
-                  rows="15"
-                  cols="60"
-                  >{{ request.form['author'] }}</textarea>
+       
+        <input type="text" name="author"
+               placeholder="enter author"
+               value="{{ request.form['author'] }}"></input>
         <br>
+    
         <label for="content">Quantity</label>
         <br>
-        <textarea name="content"
-                  placeholder="Post quantity"
-                  rows="15"
-                  cols="60"
-                  >{{ request.form[quantity] }}</textarea>
+        <input type="text" name=quantity
+               placeholder="enter quantity"
+               value="{{ request.form[quantity] }}"></input>
         <br>
-        <button type="submit">Submit</button>
+       
+      
+        <input type="submit" value="Add book"
+        onclick="return confirm('Are you sure you want to add this book?')">
     </form>
 {% endblock %}

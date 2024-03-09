@@ -2,13 +2,15 @@
 
 {% block content %}
 <h2><a href = "/new">Enter new book</a></h2>
-    <h1>{% block title %} view all books {% endblock %}</h1>
-    {% for post in posts %}
+    <h1>{% block title %} View all books {% endblock %}</h1>
+    {% for post in collects %}
         <div class='post'>
-            <p>{{ post['created'] }}</p>
+            <p>Book id: {{ post['id'] }} <h3><a href = "{{post['id']}}/edit">edit book</a></h3></p>
+            <p>Date created: {{ post['created'] }}</p>
             <h2>{{ post['title'] }}</h2>
-            <p>{{ post['author'] }}</p>
-            <p>{{ post['quantity'] }}</p>
+            <p>Book author: {{ post['author'] }}</p>
+            <p>Book available: {{ post['quantity'] }}</p>
+           
            
         </div>
     {% endfor %}

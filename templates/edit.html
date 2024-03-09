@@ -2,34 +2,31 @@
 
 {% block content %}
     <h2><a href = "/">view books</a></h2>
-    <h2>{% block title %} Edit "{{ post['title'] }}" {% endblock %}</h2>
+    <h2>{% block title %} Edit Book "{{ post['title'] }}" {% endblock %}</h2>
     <form method="post">
         <label for="title">Title</label>
         <br>
         <input type="text" name="title"
-               placeholder="Post title"
+             
                value="{{ request.form['title'] or post['title'] }}"></input>
         <br>
 
         <label for="content">Author</label>
         <br>
-        <textarea name="content"
-                  placeholder="Post author"
-                  rows="15"
-                  cols="60"
-                  >{{ request.form['author'] or post['author'] }}</textarea>
+       
+        <input type="text" name="author"
+             
+               value="{{ request.form['author'] or post['author'] }}"></input>
         <br>
+        
+       
+        <input type="text" name=quantity
+           
+               value="{{ request.form['quantity'] or post['quantity'] }}"></input>
         <br>
-        <textarea name="content"
-                  placeholder="Post quantity"
-                  rows="15"
-                  cols="60"
-                  >{{ request.form[quantity] or post[quantity] }}</textarea>
-        <br>
-        <button type="submit">Submit</button>
+        <button type="submit">Edit Book</button>
     </form>
    
-
     <hr>
     <form action="{{ url_for('delete', id=post['id']) }}" method="POST">
         <input type="submit" value="Delete book"
