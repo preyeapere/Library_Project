@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, url_for, flash, redirect,abor
 
 # ...
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your secret key'
+app.config['SECRET_KEY'] = 'your secret keys'
 
 def get_db_connect():
     conn = sqlite3.connect('database.db')
