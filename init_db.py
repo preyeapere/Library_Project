@@ -12,7 +12,7 @@ def init_db():
             )
     
     cur.execute("INSERT INTO book(title, author,quantity) VALUES (?, ?,?)",
-            ('Civil war', 'The Nigeria Civil war was fight with no victor no vanaquished',89)
+            ('Civil war', 'The Biafran war was fight with no victor no vanaquished',89)
             )
     cur.execute("INSERT INTO book (title, author,quantity) VALUES (?, ?,?)",
             ('clement Songs', 'Clement Doe',7)
